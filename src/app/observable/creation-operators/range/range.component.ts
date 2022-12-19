@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { Observable, range } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, range, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-range',
   templateUrl: './range.component.html',
   styleUrls: ['./range.component.scss']
 })
-export class RangeComponent {
+export class RangeComponent implements OnDestroy{
 snippet=`
 import { range } from 'rxjs';
 
@@ -23,14 +23,17 @@ numbers.subscribe({
 // 3
 // 'Complete!'`
 
-
+subscription:Subscription;
 constructor(){
   const number= range(1,10);
   
-  number.subscribe(res => {
+  this.subscription=number.subscribe(res => {
   console.log(res);
   });
   // this.output=number.subscribe(res=>console.log(res))
 
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

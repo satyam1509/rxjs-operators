@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, take, tap } from 'rxjs';
+import { fromEvent, Subscription, take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-take',
@@ -16,6 +16,7 @@ export class TakeComponent{
 
 const subscribe = example.subscribe(val => console.log(Even number: val));`
   
+// subs:Subscription;
   constructor(){
     // const oneClickEvent = fromEvent(document, 'click').pipe(
     //   take(1),

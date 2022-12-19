@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { of, scan } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { of, scan, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-scan',
   templateUrl: './scan.component.html',
   styleUrls: ['./scan.component.scss']
 })
-export class ScanComponent {
+export class ScanComponent implements OnDestroy{
 
   
   snippet=`
@@ -22,6 +22,7 @@ export class ScanComponent {
   const subscribe = example.subscribe(val => console.log(val));
   // output: 1,3,6`
 
+  subs:Subscription;
 constructor(){
 
   const source = of(1, 2, 3, 4, 5);
@@ -29,7 +30,10 @@ constructor(){
 const example = source.pipe(scan((acc, curr) => acc + curr,0));
 
 // output: 1,3,6
-const subscribe = example.subscribe(val => console.log(val));
+this.subs= example.subscribe(val => console.log(val));
  
 }
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }
