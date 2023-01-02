@@ -20,4 +20,6 @@ describe('RangeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });

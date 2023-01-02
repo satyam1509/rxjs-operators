@@ -20,4 +20,11 @@ describe('OfComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('title should be ' ,()=>{
+    const head =fixture.nativeElement ;
+    expect(head.querySelector(".test").textContent).toContain('Testing');
+  })
+  
+ 
 });

@@ -13,9 +13,9 @@ export class IntervalComponent implements OnDestroy {
 
   const numbers = interval(1000);
   
-  const takeFourNumbers = numbers.pipe(take(10));
+  const takeNumbers = numbers.pipe(take(10));
   
-  takeFourNumbers.subscribe(x => console.log('Next: ', x));
+  takeNumbers.subscribe(x => console.log('Next: ', x));
   
   // Logs:
   // Next: 0

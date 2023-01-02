@@ -1,1 +1,28 @@
-<p>throttle works!</p>
+<div class="container-fluid my-2">
+    <h2 class="text-center text-bg-primary">throttle Operator</h2>
+  
+    <h3 class="">
+      <strong>Description: </strong>Emits a value from the source Observable, 
+      then ignores subsequent source values for a duration determined by another Observable, then repeats this process.
+    </h3>
+    <br />
+    <h3><strong>Syntax: </strong>throttle(durationSelector: (value: T) => ObservableInput, config: ThrottleConfig = defaultThrottleConfig)</h3>
+  
+    <div class="d-flex">
+      <h3><strong>Snippet: </strong></h3>
+      <pre>
+               <code>{{snippet}}</code>
+              </pre>
+    </div>
+
+    <h3 class="">
+        <strong>Use Case: </strong>This operator is mostly used for events that can be triggered tens or even hundreds of times per second.
+         The most common examples are DOM events such as scrolling, resizing, mouse movements, and keypress.
+      </h3>
+    <div>
+    <input matInput placeholder="Search" #search>
+    </div>
+
+  
+  
+  

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { forkJoin, of, Subscription, timer } from 'rxjs';
+import { forkJoin, of, range, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-forkjoin',
@@ -14,7 +14,7 @@ export class ForkjoinComponent  implements OnDestroy{
 const observable = forkJoin({
   foo: of(1, 2, 3, 4),
   bar: Promise.resolve(8),
-  baz: timer(4000)
+
 });
 observable.subscribe({
  next: value => console.log(value),
@@ -22,15 +22,15 @@ observable.subscribe({
 });
 
 // Logs:
-// { foo: 4, bar: 8, baz: 0 } after 4 seconds
+// { foo: 4, bar: 8 } after 4 seconds
 // 'This is how it ends!' immediately after`
 subs:Subscription;
 
 constructor(){
   const observable = forkJoin({
     foo: of(1, 2, 3, 4),
-    bar: Promise.resolve(8),
-    baz: timer(5000)
+    bar: range(1,9),
+    
   });
   this.subs=observable.subscribe(value => console.log(value),
   );

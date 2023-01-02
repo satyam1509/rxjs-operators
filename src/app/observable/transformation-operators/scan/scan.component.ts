@@ -27,7 +27,7 @@ constructor(){
 
   const source = of(1, 2, 3, 4, 5);
 // basic scan example, sum over time starting with zero
-const example = source.pipe(scan((acc, curr) => acc + curr,0));
+const example = source.pipe(scan((acc, curr) => acc + curr,2));
 
 // output: 1,3,6
 this.subs= example.subscribe(val => console.log(val));

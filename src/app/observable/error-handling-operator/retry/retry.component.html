@@ -1,1 +1,26 @@
-<p>retry works!</p>
+<div class="container-fluid my-2">
+    <h2 class="text-center text-bg-primary">retry Operator</h2>
+  
+    <h3 class="">
+      <strong>Description: </strong>retry passes values along to the observer (mirroring) until an error in the source stream occurs. When that happens, the operator will resubscribe to the source observable instead of propagating the error to the observer. 
+      The number of times this resubscription will occur on an error is defined by the count parameter passed to the operator.
+    </h3>
+    <br />
+    <h3><strong>Syntax: </strong> retry(count: number)</h3>
+  
+    <div class="d-flex">
+      <h3><strong>Snippet: </strong></h3>
+      <pre>
+               <code>{{snippet}}</code>
+              </pre>
+    </div>
+    <h3 class="">
+        <strong>Use Cases: </strong>Errors in programs happen all the time.
+         For example, a network request can fail because of numerous reasons.
+         retry can be used to retry a failed network request.
+      </h3>
+   
+  
+  
+
+   

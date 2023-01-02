@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +13,9 @@ export class FromEventComponent  implements OnDestroy{
 
 const clicks = fromEvent(document, 'click');
 clicks.subscribe(x => console.log(x));`
+
   subscription:Subscription;
+  
   constructor(){
    
 const clicks = fromEvent(document, 'click');
